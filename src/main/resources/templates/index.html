@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Inicio</title>
+</head>
+<body>
+<style>
+    body {
+        background-color: #e6e6e6;
+        color: #222222;
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        text-align: center;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: #9933cc;
+    }
+
+    button {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        background-color: #9933cc;
+        color: #ffffff;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+        margin: 0.5rem;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+        background-color: #800080;
+    }
+
+    table {
+        width: 80%;
+        border-collapse: collapse;
+        margin: 2rem auto;
+        background-color: #ffffff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    th, td {
+        padding: 1rem;
+        border-bottom: 1px solid #f2f2f2;
+    }
+
+    th {
+        background-color: #f2f2f2;
+        color: #333333;
+        font-weight: bold;
+    }
+
+    a {
+        text-decoration: none;
+        color: #9933cc;
+        transition: color 0.3s ease;
+    }
+
+    a:hover {
+        color: #800080;
+    }
+</style>
+<h1>Index</h1>
+<a href="/ninjas/new"><button>Agregar Ninja</button></a>
+<a href="/dojos/new"><button>Agregar Dojo</button></a>
+<table>
+    <thead>
+    <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Dojo</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="ninja : ${ninjas}">
+        <td th:text="${ninja.firstName}"></td>
+        <td th:text="${ninja.lastName}"></td>
+        <td th:text="${ninja.dojo != null ? ninja.dojo.name : 'No Dojo'}"></td>
+        <td><a th:href="@{/ninjas/{id}(id=${ninja.id})}">Ver Detalle</a></td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>

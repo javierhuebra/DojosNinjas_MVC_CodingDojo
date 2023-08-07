@@ -1,0 +1,68 @@
+<body>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    form {
+        width: 300px;
+        height: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+        background-color: #45a049;
+    }
+</style>
+<form th:action="@{/ninjas/new}" method="POST" th:object="${newNinja}">
+    <label>
+        Dojo al que pertenece el Ninja:
+        <select th:name="dojo">
+            <option th:each="dojo : ${dojos}" th:value="${dojo.id}" th:text="${dojo.name}"></option>
+        </select>
+    </label>
+    <label>
+        Nombre:
+        <input type="text" th:field="*{firstName}" placeholder="Nombre">
+    </label>
+    <label>
+        Apellido:
+        <input type="text" th:field="*{lastName}" placeholder="Apellido">
+    </label>
+    <label>
+        Edad:
+        <input type="number" th:field="*{age}" placeholder="3 años">
+    </label>
+    <input type="submit" value="Cargar Ninja">
+</form>
+</body>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Detail</title>
+</head>
+<body>
+<style>
+    body {
+        background-color: #2a2139;
+        color: #f3e8ee;
+        font-family: "Courier New", monospace;
+        line-height: 1.6;
+        text-align: center;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        color: #ff8ac6;
+    }
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: #8aff80;
+    }
+
+    span {
+        color: #f3e8ee;
+    }
+
+    button {
+        padding: 0.75rem 1rem;
+        font-size: 1rem;
+        background-color: #aa4cbc;
+        color: #f3e8ee;
+        border: none;
+        border-radius: 0.25rem;
+        cursor: pointer;
+    }
+
+    button:hover {
+        background-color: #ff8ac6;
+    }
+
+    a {
+        text-decoration: none;
+    }
+</style>
+<h1>Ninja: <span th:text="${ninjaPorId.firstName} + ' ' + ${ninjaPorId.lastName}"></span></h1>
+<h2>Dojo al que pertenece: <span th:text="${ninjaPorId.dojo.name}"></span></h2>
+<h2>Id del ninja: <span th:text="${ninjaPorId.id}"></span></h2>
+<h2>Id del dojo: <span th:text="${ninjaPorId.dojo.id}"></span></h2>
+<a href="/"><button>Volver al index</button></a>
+</body>
+</html>
