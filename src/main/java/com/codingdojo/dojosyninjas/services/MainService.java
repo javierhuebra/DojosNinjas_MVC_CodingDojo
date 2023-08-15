@@ -22,7 +22,7 @@ public class MainService {
 
     //Obtener todos los dojos
     public List<Dojo> allDojos(){
-        return dojoRepository.findAll();
+        return dojoRepository.queryAllDojos();//Aca uso la query personalizada para probar
     }
 
     //Crear Dojo
